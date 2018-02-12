@@ -2,9 +2,11 @@
   "name": "react-states-machine",
   "version": "1.0.0",
   "description": "React finite state machine done right",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "babel lib -d dist",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -27,11 +29,14 @@
   },
   "homepage": "https://github.com/bredele/react-states-machine#readme",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-jest": "^22.2.2",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "jest": "^22.2.2",
-    "react-test-renderer": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "react-test-renderer": "^16.2.0"
   }
 }

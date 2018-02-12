@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should go to given state 1`] = `
+<button
+  onClick={[Function]}
+>
+  hello world
+</button>
+`;
+
+exports[`should go to given state 2`] = `
+<button>
+  other
+</button>
+`;
+
+exports[`should go to given state and pass props 1`] = `
+<button
+  onClick={[Function]}
+>
+  hello world
+</button>
+`;
+
+exports[`should go to given state and pass props 2`] = `
+<button>
+  props.label
+</button>
+`;
+
+exports[`should render first state 1`] = `
+<button>
+  hello world
+</button>
+`;
+
+exports[`should render given state 1`] = `
+<button>
+  other
+</button>
+`;
+
+exports[`should transition current state 1`] = `
+<button
+  onClick={[Function]}
+>
+  hello
+  world
+</button>
+`;
+
+exports[`should transition current state 2`] = `
+<button
+  onClick={[Function]}
+>
+  hello
+  john
+</button>
+`;
+
+exports[`should transition current state and update props 1`] = `
+<button
+  onClick={[Function]}
+>
+  hello 
+  world
+</button>
+`;
+
+exports[`should transition current state and update props 2`] = `
+<button
+  onClick={[Function]}
+>
+  hello 
+  world
+</button>
+`;
+
+exports[`should transition to other state 1`] = `
+<button
+  onClick={[Function]}
+>
+  hello world
+</button>
+`;
+
+exports[`should transition to other state 2`] = `
+<span>
+  other
+</span>
+`;
+
+exports[`should transition to other state and pass props 1`] = `
+<button
+  onClick={[Function]}
+>
+  hello world
+</button>
+`;
+
+exports[`should transition to other state and pass props 2`] = `
+<button
+  onClick={[Function]}
+>
+  hello world
+</button>
+`;
