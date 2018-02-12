@@ -1,0 +1,26 @@
+{
+  "name": "react-states-machine",
+  "version": "1.0.0",
+  "description": "React finite state machine done right",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bredele/react-states-machine.git"
+  },
+  "keywords": [
+    "react",
+    "state",
+    "machine",
+    "redux",
+    "flux"
+  ],
+  "author": "Olivier Wietrich",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bredele/react-states-machine/issues"
+  },
+  "homepage": "https://github.com/bredele/react-states-machine#readme"
+}
