@@ -110,7 +110,7 @@ machine({
 })
 ```
 
-You also can go to an other state without transition:
+But you also can go to an other state without transition:
 
 ```js
 machine({
@@ -138,6 +138,7 @@ machine({
 })
 ```
 
+Check out [our test suite](./test/react-states-machine.test.js) for more information.
 
 ## Installation
 
