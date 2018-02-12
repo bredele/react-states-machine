@@ -7,7 +7,6 @@
 
 Architecture your [React](https://reactjs.org/) components the right way using a simple and elegant finite state machine.
 
-
 ## Usage
 
 ```js
@@ -48,6 +47,97 @@ function Flow () {
 ```
 
 React states machines works with react native, react dom and all environments using JSX.
+
+## Getting started
+
+A state machine is an object describing your application/component states.
+
+```js
+machine({
+  state: [
+    component,
+    transitions
+  ]
+})
+```
+
+A state is composed of a component as well as an optional object containing transitions to mutate this component. Here's an example
+that shows how to style an input when empty using a transition called `validity`:
+
+```js
+machine({
+  'inputState': [
+    props => <input className={props.invalid ? 'invalid' : ''} onChange={e => props.transition('validity', e.target.value)}/>,
+    {
+      'validity': [(prev, value) => {
+        return {
+          invalid: !value
+        }
+      }]
+    }
+  ]
+})
+```
+
+A transition is a function used to pass props to your component and update it. A transition is also useful to describe the passage to an other state. Here's an example:
+
+```js
+machine({
+  'formEmail': [
+    props => {
+      return (
+        <div>
+          <input type="email" />
+          <button onClick={() => props.transition('next')}>next</button>
+        </div>
+      )
+    },
+    {
+      next: [() => ({name: 'John Doe'}), 'formPassword']
+    }
+  ],
+  'formPassword': [
+    props => {
+      return (
+        <div>
+          <h2>Hello {props.name}</h2>
+          <input type="password" />
+          <button>connect</button>
+        </div>
+      )
+    }
+  ]
+})
+```
+
+You also can go to an other state without transition:
+
+```js
+machine({
+  'formEmail': [
+    props => {
+      return (
+        <div>
+          <input type="email" />
+          <button onClick={() => props.goto('formPassword')}>next</button>
+        </div>
+      )
+    }
+  ],
+  'formPassword': [
+    props => {
+      return (
+        <div>
+          <h2>Hello {props.name}</h2>
+          <input type="password" />
+          <button>connect</button>
+        </div>
+      )
+    }
+  ]
+})
+```
+
 
 ## Installation
 
