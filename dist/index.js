@@ -115,8 +115,11 @@ function transition(source) {
     var dest = transitions[path];
     if (dest) {
       var _transition = [].concat(dest);
-      Promise.resolve(_transition[0].apply(_transition, [source.state.data].concat(args))).then(function (data) {
-        return _goto(source, data, _transition[1]);
+      var next = _transition[1];
+      Promise.resolve(_transition[0].apply(_transition, [source.state.data].concat(args))).then(function (value) {
+        return _goto(source, value, typeof next === 'function' ? next(value) : next);
+      }, function (reason) {
+        return _goto(source, reason, typeof next === 'function' ? next(reason) : next);
       });
     }
   };
