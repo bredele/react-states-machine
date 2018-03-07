@@ -86,6 +86,9 @@ var Machine = function (_React$Component) {
         transition: transition(this, transitions),
         goto: function goto(next, data) {
           return _goto(_this2, data, next);
+        },
+        reset: function reset(data) {
+          return _goto(_this2, data);
         }
       }));
     }
