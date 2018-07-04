@@ -36,7 +36,8 @@ function Flow () {
             )
           },
           {
-            'update': [() => ({message: 'This is awesome!'})]
+            // update message after 1 second - transition accept promises!
+            'update': [() => setTimeout(() => Promise.resolve({message: 'This is awesome!'}), 1000)]
           }
         ]
       })}
