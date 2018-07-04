@@ -20,11 +20,8 @@ function Flow () {
         'welcome': [
           props => <button onClick={() => props.transition('click')}>Welcome</button>,
           {
-            // click transition
-            'click': [
-              () => ({message: 'Hello you!'}),
-              'next'
-            ]
+            // transition to next on 'click' event
+            'click': [() => ({message: 'Hello you!'}), 'next']
           }
         ],
         // next state
