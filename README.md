@@ -63,8 +63,7 @@ machine({
 })
 ```
 
-A state is composed of a component as well as an optional object containing transitions to mutate this component. Here's an example
-that shows how to style an input when empty using a transition called `validity`:
+A state is composed of a component as well as an optional object containing transitions to mutate this component. Here's an example that shows how to style an input when empty using a transition called `validity`:
 
 ```js
 machine({
@@ -81,7 +80,9 @@ machine({
 })
 ```
 
-A transition is a function used to pass props to your component and update it. A transition is also useful to describe the passage to an other state. Here's an example:
+A transition is a function used to pass props to your component and update it. This function can return any types as well as promises (transition is resolved with the promise).
+
+A transition is also useful to describe the passage to an other state. Here's an example:
 
 ```js
 machine({
