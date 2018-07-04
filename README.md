@@ -1,6 +1,5 @@
 # React State Machine
 
-[![Build Status](https://travis-ci.org/bredele/react-states-machine.svg?branch=master)](https://travis-ci.org/bredele/react-states-machine)
 [![NPM](https://img.shields.io/npm/v/react-states-machine.svg?style=flat-square)](https://www.npmjs.com/package/react-states-machine)
 [![Downloads](https://img.shields.io/npm/dm/react-states-machine.svg?style=flat-square)](http://npm-stat.com/charts.html?package=react-states-machine)
 [![pledge](https://bredele.github.io/contributing-guide/community-pledge.svg)](https://github.com/bredele/contributing-guide/blob/master/community.md)
