@@ -9,6 +9,7 @@ Inspired by [mood](https://github.com/bredele/mood) this module is using the wel
   - Describe the logic for handling changes/updates as simple functions (called transitions).
   - Describe changes as plain objects to pass well defined and thought props.
 
+[Try online!](https://codesandbox.io/s/7jn717on4x)
 
 
 In addition, this module makes easy to:
@@ -50,7 +51,7 @@ function NavigationFlow (attrs) {
       },
       {
         // update event update next state with new message prop after 1 second
-        'update': [() => setTimeout(() => Promise.resolve({message: 'This is awesome!'}), 1000)]
+        'update': [() => new Promise(resolve => setTimeout(() => resolve({ message: 'This is awesome!' }), 1000))]
       }
     ]
   }, attrs)
