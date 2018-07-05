@@ -17,8 +17,7 @@ In addition, this module makes easy to:
   - test components (dynamic relationships between components are tested separately)
   - manage asynchronous changes (props can be resolved by promises)
 
-[![react-states-machine](./diagram.png)]
-
+![react-states-machine](./diagram.png)
 
 ## Usage
 
