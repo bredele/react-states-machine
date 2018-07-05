@@ -5,47 +5,55 @@
 [![Downloads](https://img.shields.io/npm/dm/react-states-machine.svg?style=flat-square)](http://npm-stat.com/charts.html?package=react-states-machine)
 [![pledge](https://bredele.github.io/contributing-guide/community-pledge.svg)](https://github.com/bredele/contributing-guide/blob/master/community.md)
 
-Architecture your [React](https://reactjs.org/) components the right way using a simple and elegant finite state machine.
+Inspired by [mood](https://github.com/bredele/mood) this module is using the well known [finite state machine](https://en.wikipedia.org/wiki/Finite-state_machine) pattern to alleviate some of the issues that crop up in complex React applications by strictly separating the management of states from your components. This module stay true to the original intent behind React:
+  - Describe states as static components only (dynamic relationships within a component are expressed outside of the component itself)
+  - Describe the logic for handling changes/updates as simple functions (called transitions).
+  - Describe changes as plain objects to pass as well defined and thought props.
+
+In addition, this module makes easy to:
+  - develop stateless components (easier to understand and maintain)
+  - develop components in isolation (easier to reuse and scale)
+  - test components (dynamic relationships between components are tested separately)
+  - manage asynchronous changes
+
+[![react-states-machine](./diagram.png)
+
 
 ## Usage
+
+A state is made of a component as well as a set of actions to be executed (called transitions). Those actions are called through transitions events and either update the current state or display a new state. A transition manage changes by passing props to the wanted state. The example below show a simple navigation flow
+
 
 ```js
 import machine from 'react-states-machine'
 
-// describe flow using state machine
-function Flow () {
-  return (
-    <div>
-      {machine({
-        // welcome state
-        'welcome': [
-          props => <button onClick={() => props.transition('click')}>Welcome</button>,
-          {
-            // click transition
-            'click': [
-              () => ({message: 'Hello you!'}),
-              'next'
-            ]
-          }
-        ],
-        // next state
-        'next': [
-          props => {
-            return (
-              <div>
-                <button onClick={() => props.goto('welcome')}>previous</button>
-                {props.message}
-                <button onClick={() => props.transition('update')}>next</button>
-              </div>
-            )
-          },
-          {
-            'update': [() => ({message: 'This is awesome!'})]
-          }
-        ]
-      })}
-    </div>
-  )
+function NavigationFlow (attrs) {
+  return machine({
+    // welcome state
+    'welcome': [
+      props => <button onClick={() => props.transition('click')}>Welcome</button>,
+      {
+        // click event transition from welcome state to next state with a new message prop
+        'click': [() => ({message: 'Hello you!'}), 'next']
+      }
+    ],
+    // next state
+    'next': [
+      props => {
+        return (
+          <div>
+            <button onClick={() => props.goto('welcome')}>previous</button>
+            {props.message}
+            <button onClick={() => props.transition('update')}>next</button>
+          </div>
+        )
+      },
+      {
+        // update event update next state with new message prop
+        'update': [() => ({message: 'This is awesome!'})]
+      }
+    ]
+  }, attrs)
 }
 ```
 
@@ -159,7 +167,7 @@ For questions and feedback please use our [twitter account](https://twitter.com/
 
 ## Contribution
 
-Cookie-token is an open source project and would not exist without its community. If you want to participate please make sure to read our <a href="https://github.com/bredele/contributing-guide/blob/master/community.md" target="_blank">guideline</a> before making a pull request. If you have any react-states-machine related project, component or other let everyone know in our wiki.
+This is an open source project and would not exist without its community. If you want to participate please make sure to read our <a href="https://github.com/bredele/contributing-guide/blob/master/community.md" target="_blank">guideline</a> before making a pull request. If you have any react-states-machine related project, component or other let everyone know in our wiki.
 
 
 ## Licence
