@@ -7,7 +7,7 @@
 Inspired by [mood](https://github.com/bredele/mood) this module is using the well known [finite state machine](https://en.wikipedia.org/wiki/Finite-state_machine) pattern to alleviate some of the issues that crop up in complex React applications by strictly separating the management of states from your components. This module stay true to the original intent behind React:
   - Describe states as static components only (dynamic relationships within a component are expressed outside of the component itself)
   - Describe the logic for handling changes/updates as simple functions (called transitions).
-  - Describe changes as plain objects to pass as well defined and thought props.
+  - Describe changes as plain objects to pass well defined and thought props.
 
 
 
