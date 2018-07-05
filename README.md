@@ -9,13 +9,15 @@ Inspired by [mood](https://github.com/bredele/mood) this module is using the wel
   - Describe the logic for handling changes/updates as simple functions (called transitions).
   - Describe changes as plain objects to pass as well defined and thought props.
 
+
+
 In addition, this module makes easy to:
   - develop stateless components (easier to understand and maintain)
   - develop components in isolation (easier to reuse and scale)
   - test components (dynamic relationships between components are tested separately)
-  - manage asynchronous changes
+  - manage asynchronous changes (props can be resolved by promises)
 
-[![react-states-machine](./diagram.png)
+[![react-states-machine](./diagram.png)]
 
 
 ## Usage
@@ -48,8 +50,8 @@ function NavigationFlow (attrs) {
         )
       },
       {
-        // update event update next state with new message prop
-        'update': [() => ({message: 'This is awesome!'})]
+        // update event update next state with new message prop after 1 second
+        'update': [() => setTimeout(() => Promise.resolve({message: 'This is awesome!'}), 1000)]
       }
     ]
   }, attrs)
