@@ -21,7 +21,7 @@ In addition, this module makes easy to:
 
 ## Usage
 
-A state is made of a component as well as a set of actions to be executed (called transitions). Those actions are called through transitions events and either update the current state or display a new state. A transition manage changes by passing props to the wanted state. Here's a simple example of navigation flow using react-states-machine:
+A state is made of a component as well as a set of actions to be executed (called transitions). Those actions are called through transitions events and either update the current state or display a new state. A transition manages changes by passing props to the wanted state. Here's a simple example of navigation flow using react-states-machine:
 
 
 ```js
