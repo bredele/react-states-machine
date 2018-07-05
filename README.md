@@ -1,6 +1,5 @@
 # React State Machine
 
-[![Build Status](https://travis-ci.org/bredele/react-states-machine.svg?branch=master)](https://travis-ci.org/bredele/react-states-machine)
 [![NPM](https://img.shields.io/npm/v/react-states-machine.svg?style=flat-square)](https://www.npmjs.com/package/react-states-machine)
 [![Downloads](https://img.shields.io/npm/dm/react-states-machine.svg?style=flat-square)](http://npm-stat.com/charts.html?package=react-states-machine)
 [![pledge](https://bredele.github.io/contributing-guide/community-pledge.svg)](https://github.com/bredele/contributing-guide/blob/master/community.md)
@@ -70,8 +69,7 @@ machine({
 })
 ```
 
-A state is composed of a component as well as an optional object containing transitions to mutate this component. Here's an example
-that shows how to style an input when empty using a transition called `validity`:
+A state is composed of a component as well as an optional object containing transitions to mutate this component. Here's an example that shows how to style an input when empty using a transition called `validity`:
 
 ```js
 machine({
@@ -88,7 +86,9 @@ machine({
 })
 ```
 
-A transition is a function used to pass props to your component and update it. A transition is also useful to describe the passage to an other state. Here's an example:
+A transition is a function used to pass props to your component and update it. This function can return any types as well as promises (transition is resolved with the promise).
+
+A transition is also useful to describe the passage to an other state. Here's an example:
 
 ```js
 machine({
