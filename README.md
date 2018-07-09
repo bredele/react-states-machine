@@ -29,32 +29,38 @@ A state is made of a component as well as a set of actions to be executed (calle
 import machine from 'react-states-machine'
 
 function NavigationFlow (attrs) {
-  return machine({
-    // welcome state
-    'welcome': [
-      props => <button onClick={() => props.transition('click')}>Welcome</button>,
+  return (
+    <section>
       {
-        // click event transition from welcome state to next state with a new message prop
-        'click': [() => ({message: 'Hello you!'}), 'next']
+        machine({
+          // welcome state
+          'welcome': [
+            props => <button onClick={() => props.transition('click')}>Welcome</button>,
+            {
+              // click event transition from welcome state to next state with a new message prop
+              'click': [() => ({message: 'Hello you!'}), 'next']
+            }
+          ],
+          // next state
+          'next': [
+            props => {
+              return (
+                <div>
+                  <button onClick={() => props.goto('welcome')}>previous</button>
+                  {props.message}
+                  <button onClick={() => props.transition('update')}>next</button>
+                </div>
+              )
+            },
+            {
+              // update event update next state with new message prop after 1 second
+              'update': [() => new Promise(resolve => setTimeout(() => resolve({ message: 'This is awesome!' }), 1000))]
+            }
+          ]
+        }, attrs)
       }
-    ],
-    // next state
-    'next': [
-      props => {
-        return (
-          <div>
-            <button onClick={() => props.goto('welcome')}>previous</button>
-            {props.message}
-            <button onClick={() => props.transition('update')}>next</button>
-          </div>
-        )
-      },
-      {
-        // update event update next state with new message prop after 1 second
-        'update': [() => new Promise(resolve => setTimeout(() => resolve({ message: 'This is awesome!' }), 1000))]
-      }
-    ]
-  }, attrs)
+    </section>
+ )
 }
 ```
 
